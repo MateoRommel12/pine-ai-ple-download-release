@@ -3,40 +3,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const downloadBtn = document.getElementById('androidDownload');
     
     // Add click animation
-    downloadBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Add loading state
-        const originalContent = this.innerHTML;
-        this.innerHTML = `
-            <span class="btn-icon">⏳</span>
-            <div class="btn-text">
-                <span class="btn-title">Preparing Download...</span>
-                <span class="btn-subtitle">Please wait</span>
-            </div>
-        `;
-        
-        // Simulate download preparation
-        setTimeout(() => {
-            // Replace with actual APK download link
-            const apkUrl = 'https://github.com/MateoRommel12/pineapple-apk/releases/download/v1.0.0/app-release.apk';
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
             
-            // Create temporary download link
-            const link = document.createElement('a');
-            link.href = apkUrl;
-            link.download = 'pineapple-ai.apk';
-            link.style.display = 'none';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            // Add loading state
+            const originalContent = this.innerHTML;
+            this.innerHTML = `
+                <span class="btn-icon">⏳</span>
+                <div class="btn-text">
+                    <span class="btn-title">Preparing Download...</span>
+                    <span class="btn-subtitle">Please wait</span>
+                </div>
+            `;
             
-            // Restore button
-            this.innerHTML = originalContent;
-            
-            // Show success message
-            showNotification('Download started! Check your downloads folder.', 'success');
-        }, 2000);
-    });
+            // Simulate download preparation
+            setTimeout(() => {
+                // Replace with actual APK download link
+                const apkUrl = 'https://github.com/MateoRommel12/pineapple-apk/releases/download/v1.0.0/app-release.apk';
+                
+                // Create temporary download link
+                const link = document.createElement('a');
+                link.href = apkUrl;
+                link.download = 'pineapple-ai.apk';
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Restore button
+                this.innerHTML = originalContent;
+                
+                // Show success message
+                showNotification('Download started! Check your downloads folder.', 'success');
+            }, 2000);
+        });
+    }
     
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -176,15 +178,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add click effect to download button
     const downloadBtn = document.getElementById('androidDownload');
-    downloadBtn.addEventListener('mousedown', function() {
-        this.style.transform = 'scale(0.98)';
-    });
-    
-    downloadBtn.addEventListener('mouseup', function() {
-        this.style.transform = 'scale(1)';
-    });
-    
-    downloadBtn.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-    });
+    if (downloadBtn) {
+        downloadBtn.addEventListener('mousedown', function() {
+            this.style.transform = 'scale(0.98)';
+        });
+        
+        downloadBtn.addEventListener('mouseup', function() {
+            this.style.transform = 'scale(1)';
+        });
+        
+        downloadBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    }
 });
