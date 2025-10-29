@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Simulate download preparation
         setTimeout(() => {
             // Replace with actual APK download link
-            const apkUrl = 'https://github.com/MateoRommel12/pineapple-apk/releases/download/PINE-AI-PLE/app-release.apk';
+            const apkUrl = 'https://github.com/MateoRommel12/pineapple-apk/releases/download/v1.0.0/app-release.apk';
             
             // Create temporary download link
             const link = document.createElement('a');
