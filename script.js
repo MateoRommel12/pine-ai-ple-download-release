@@ -1,10 +1,11 @@
 // Download page functionality
 document.addEventListener('DOMContentLoaded', function() {
     const downloadBtn = document.getElementById('androidDownload');
+    const downloadBtnOld = document.getElementById('androidDownloadOld');
     
-    // Add click animation
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', function(e) {
+    // Helper function to handle download
+    function handleDownload(button, version, apkUrl) {
+        button.addEventListener('click', function(e) {
             e.preventDefault();
             
             // Add loading state
@@ -19,13 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Simulate download preparation
             setTimeout(() => {
-                // Replace with actual APK download link
-                const apkUrl = 'https://github.com/MateoRommel12/pineapple-apk/releases/download/v1.0.1/app-release.apk';
-                
                 // Create temporary download link
                 const link = document.createElement('a');
                 link.href = apkUrl;
-                link.download = 'pineapple-ai.apk';
+                link.download = `pineapple-ai-v${version}.apk`;
                 link.style.display = 'none';
                 document.body.appendChild(link);
                 link.click();
@@ -35,9 +33,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.innerHTML = originalContent;
                 
                 // Show success message
-                showNotification('Download started! Check your downloads folder.', 'success');
+                showNotification(`Download started! Version ${version} is downloading.`, 'success');
             }, 2000);
         });
+    }
+    
+    // Add click animation for latest version
+    if (downloadBtn) {
+        handleDownload(downloadBtn, '1.0.1', 'https://github.com/MateoRommel12/pineapple-apk/releases/download/v1.0.1/app-release.apk');
+    }
+    
+    // Add click animation for previous version
+    if (downloadBtnOld) {
+        handleDownload(downloadBtnOld, '1.0.0', 'https://github.com/MateoRommel12/Pineapple-apk-v2/releases/download/v2.0.0/app-release.apk');
     }
     
     // Smooth scrolling for anchor links
@@ -176,19 +184,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add click effect to download button
+    // Add click effect to download buttons
     const downloadBtn = document.getElementById('androidDownload');
-    if (downloadBtn) {
-        downloadBtn.addEventListener('mousedown', function() {
-            this.style.transform = 'scale(0.98)';
-        });
-        
-        downloadBtn.addEventListener('mouseup', function() {
-            this.style.transform = 'scale(1)';
-        });
-        
-        downloadBtn.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
+    const downloadBtnOld = document.getElementById('androidDownloadOld');
+    
+    function addClickEffects(button) {
+        if (button) {
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+            
+            button.addEventListener('mouseup', function() {
+                this.style.transform = 'scale(1)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        }
     }
+    
+    addClickEffects(downloadBtn);
+    addClickEffects(downloadBtnOld);
 });
