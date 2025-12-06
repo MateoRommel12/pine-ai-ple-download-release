@@ -40,12 +40,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add click animation for latest version
     if (downloadBtn) {
-        handleDownload(downloadBtn, '1.0.1', 'https://github.com/MateoRommel12/pineapple-apk/releases/download/v1.0.1/app-release.apk');
+        handleDownload(downloadBtn, '1.0.1', 'https://github.com/MateoRommel12/Pineapple-apk-v2/releases/download/v2.0.0/app-release.apk');
     }
     
     // Add click animation for previous version
     if (downloadBtnOld) {
-        handleDownload(downloadBtnOld, '1.0.0', 'https://github.com/MateoRommel12/Pineapple-apk-v2/releases/download/v2.0.0/app-release.apk');
+        handleDownload(downloadBtnOld, '1.0.0', 'https://github.com/MateoRommel12/pineapple-apk/releases/download/v1.0.1/app-release.apk');
     }
     
     // Smooth scrolling for anchor links
