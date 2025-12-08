@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add click animation for latest version
     if (downloadBtn) {
-        handleDownload(downloadBtn, '1.0.1', 'https://github.com/MateoRommel12/Pineapple-apk-v2/releases/download/v2.0.0/app-release.apk');
+        handleDownload(downloadBtn, '1.0.1', 'https://github.com/MateoRommel12/Pineapple-apk-v2/releases/download/v2.0.0/pineapple-app.apk');
     }
     
     // Add click animation for previous version
