@@ -1,6 +1,5 @@
 // Download page functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const downloadBtn = document.getElementById('androidDownload');
     const downloadBtnOld = document.getElementById('androidDownloadOld');
     
     // Helper function to handle download
@@ -36,11 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 showNotification(`Download started! Version ${version} is downloading.`, 'success');
             }, 2000);
         });
-    }
-    
-    // Add click animation for latest version
-    if (downloadBtn) {
-        handleDownload(downloadBtn, '1.0.1', 'https://github.com/MateoRommel12/Pineapple-apk-v2/releases/download/v2.0.0/pineapple-app.apk');
     }
     
     // Add click animation for previous version
@@ -185,7 +179,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Add click effect to download buttons
-    const downloadBtn = document.getElementById('androidDownload');
     const downloadBtnOld = document.getElementById('androidDownloadOld');
     
     function addClickEffects(button) {
@@ -204,6 +197,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    addClickEffects(downloadBtn);
     addClickEffects(downloadBtnOld);
 });
